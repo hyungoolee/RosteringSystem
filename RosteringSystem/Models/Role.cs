@@ -1,10 +1,12 @@
-﻿namespace RosteringSystem.Models
+﻿using System.Collections.Generic;
+
+namespace RosteringSystem.Models
 {
     public class Role
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public Staff Staff { get; set; }
+        public virtual ICollection<Staff> Staff { get; set; }
     }
 }
