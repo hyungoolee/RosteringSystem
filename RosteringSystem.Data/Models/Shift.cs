@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RosteringSystem.Models
+namespace RosteringSystem.Data.Models
 {
     public class Shift
     {

@@ -138,17 +138,7 @@
       <DependentUpon>201702240811487_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Job.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="RosterContext.cs" />
-    <Compile Include="Models\Shift.cs" />
-    <Compile Include="Models\Staff.cs" />
-    <Compile Include="Models\StaffShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="Repository\Shift.cs" />
-    <Compile Include="Repository\Staff.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -201,6 +191,12 @@
     <EmbeddedResource Include="Migrations\201702240811487_Initial.resx">
       <DependentUpon>201702240811487_Initial.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RosteringSystem.Data\RosteringSystem.Data.csproj">
+      <Project>{7F188487-F5D2-4B35-9F9F-B1C0E812A1CA}</Project>
+      <Name>RosteringSystem.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

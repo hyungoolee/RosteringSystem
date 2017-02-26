@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosteringSystem", "RosteringSystem\RosteringSystem.csproj", "{A3FF6EAD-DAE5-4B6D-815A-3B6844B1D185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosteringSystemTests", "RosteringSystemTests\RosteringSystemTests.csproj", "{5BBC0B97-761E-434F-B9A5-D6316930A13A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosteringSystem.Data", "RosteringSystem.Data\RosteringSystem.Data.csproj", "{7F188487-F5D2-4B35-9F9F-B1C0E812A1CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A3FF6EAD-DAE5-4B6D-815A-3B6844B1D185}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3FF6EAD-DAE5-4B6D-815A-3B6844B1D185}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3FF6EAD-DAE5-4B6D-815A-3B6844B1D185}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BBC0B97-761E-434F-B9A5-D6316930A13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BBC0B97-761E-434F-B9A5-D6316930A13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BBC0B97-761E-434F-B9A5-D6316930A13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BBC0B97-761E-434F-B9A5-D6316930A13A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F188487-F5D2-4B35-9F9F-B1C0E812A1CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F188487-F5D2-4B35-9F9F-B1C0E812A1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F188487-F5D2-4B35-9F9F-B1C0E812A1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F188487-F5D2-4B35-9F9F-B1C0E812A1CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

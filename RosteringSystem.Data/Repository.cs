@@ -1,10 +1,8 @@
-﻿using RosteringSystem.Models;
-
-namespace RosteringSystem
+﻿namespace RosteringSystem.Data
 {
     public partial class Repository : IRepository
     {
-        private RosterContext _context;
+        private readonly RosterContext _context;
 
         public Repository(RosterContext context)
         {

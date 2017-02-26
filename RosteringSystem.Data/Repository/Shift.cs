@@ -1,8 +1,8 @@
-﻿using RosteringSystem.Models;
+﻿using RosteringSystem.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RosteringSystem
+namespace RosteringSystem.Data
 {
     public partial class Repository
     {

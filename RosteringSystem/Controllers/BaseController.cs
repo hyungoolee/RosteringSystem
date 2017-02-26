@@ -1,4 +1,4 @@
-﻿using RosteringSystem.Models;
+﻿using RosteringSystem.Data;
 using System.Web.Mvc;
 
 namespace RosteringSystem.Controllers

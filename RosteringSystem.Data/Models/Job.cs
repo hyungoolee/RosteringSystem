@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RosteringSystem.Models
+namespace RosteringSystem.Data.Models
 {
     public class Job
     {

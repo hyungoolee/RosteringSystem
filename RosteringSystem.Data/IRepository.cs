@@ -1,7 +1,7 @@
-using RosteringSystem.Models;
+using RosteringSystem.Data.Models;
 using System.Collections.Generic;
 
-namespace RosteringSystem
+namespace RosteringSystem.Data
 {
     public interface IRepository
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RosteringSystem.Models
+namespace RosteringSystem.Data.Models
 {
     public class StaffShift
     {

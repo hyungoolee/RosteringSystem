@@ -1,4 +1,5 @@
-using RosteringSystem.Models;
+using RosteringSystem.Data;
+using RosteringSystem.Data.Models;
 using System.Collections.Generic;
 
 namespace RosteringSystem.Migrations
