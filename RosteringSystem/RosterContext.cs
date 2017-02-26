@@ -1,7 +1,8 @@
-﻿using System.Data.Entity;
+﻿using RosteringSystem.Models;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace RosteringSystem.Models
+namespace RosteringSystem
 {
     public class RosterContext : DbContext
     {

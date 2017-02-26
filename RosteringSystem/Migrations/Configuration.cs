@@ -6,13 +6,13 @@ namespace RosteringSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<RosteringSystem.Models.RosterContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<RosterContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
-        protected override void Seed(RosteringSystem.Models.RosterContext context)
+        protected override void Seed(RosterContext context)
         {
             var roles = new List<Role>
             {

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -138,12 +139,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\RosterContext.cs" />
+    <Compile Include="RosterContext.cs" />
     <Compile Include="Models\Shift.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\StaffShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Repository\Shift.cs" />
+    <Compile Include="Repository\Staff.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
