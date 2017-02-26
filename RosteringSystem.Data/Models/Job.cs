@@ -10,5 +10,6 @@ namespace RosteringSystem.Data.Models
 
         public virtual ICollection<Shift> Shift { get; set; }
         //comment
+        //cmt 2
     }
 }
