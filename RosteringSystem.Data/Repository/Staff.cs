@@ -1,7 +1,8 @@
 ﻿using RosteringSystem.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
-
+using System;
+ 
 namespace RosteringSystem.Data
 {
     public partial class Repository
@@ -22,6 +23,11 @@ namespace RosteringSystem.Data
             _context.Entry(found).CurrentValues.SetValues(staff);
             _context.SaveChanges();
             return true;
+        }
+
+        public IEnumerable<Role> GetRoleList()
+        {
+            throw new NotImplementedException();
         }
 
         public bool RemoveStaffById(int id)
