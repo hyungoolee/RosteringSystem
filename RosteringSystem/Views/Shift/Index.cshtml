@@ -1,0 +1,39 @@
+﻿@model RosteringSystem.ViewModels.ShiftViewClass
+
+@{
+    ViewBag.Title = "Shift";
+}
+
+<h2>List of Shifts that Needs Resources</h2>
+<table class="table table-bordered table-striped">
+
+    <tr>
+        <td>Shift Id</td>
+        <th>Job Name</th>
+       
+        <th>Time Start</th>
+        <th>Time Finish</th>
+        <th>Role </th>
+        <th>Resources Needed</th>
+        <th>Slots Available</th>
+        
+        <th>&nbsp</th>
+    </tr>
+   @foreach(var sm in Model.ShiftList)
+    {
+        <tr>
+            <td>@sm.Id</td>
+            <td>@sm.Job.Name</td>
+            <td>@sm.Start</td>
+            <td>@sm.End</td>
+            <td>@sm.Role.Name</td>
+            <td>@sm.Capacity/td>
+            <td>@sm.Vacancy</td>
+            
+
+            <td>@*<a href="/Staff/EditStaffMember?staffId=@sm.Id">Edit</a>*@</td>
+        </tr>
+    }
+</table>
+
+

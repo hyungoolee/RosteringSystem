@@ -141,7 +141,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddShiftView.cs" />
-    <Compile Include="ViewModels\ShiftClass.cs" />
+    <Compile Include="ViewModels\ShiftViewClass.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,11 +179,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shift\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Dashboard\" />
-    <Folder Include="Views\Shift\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

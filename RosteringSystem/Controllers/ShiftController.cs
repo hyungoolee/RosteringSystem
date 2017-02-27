@@ -1,4 +1,5 @@
 ﻿using RosteringSystem.Data;
+using RosteringSystem.Data.Models;
 using RosteringSystem.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,14 @@ namespace RosteringSystem.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult CreateShift(ShiftClass shift) {
+        public ActionResult CreateShift(AddShiftView shift) {
             IRepository repo = new Repository();
+            Shift s = new Shift();
+            s.Capacity = shift.Capacity;
+            s.JobId = shift.JobId;
+            s.RoleId = shift.RoleId;
+            s.Start = shift.Start;
+            s.End = shift.End;
             repo.CreateShift(shift);
             return RedirectToAction("Index", "Shift");
         }
