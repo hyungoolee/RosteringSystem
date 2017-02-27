@@ -16,5 +16,18 @@ namespace RosteringSystem.Data
         bool UpdateShift(Shift shift);
         bool RemoveShiftById(int id);
         Shift GetShiftById(int id);
+
+        List<Job> JobList();
+        void CreateJob(Job job);
+        bool UpdateJob(Job job);
+        bool RemoveJobById(int id);
+        Shift GetJobById(int id);
+
+
+        List<Role> RoleList();
+        void CreateRole(Role role);
+        bool UpdateRole(Role role);
+        bool RemoveRoleById(int id);
+        Shift GetRoleById(int id);
     }
 }
