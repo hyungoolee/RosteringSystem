@@ -137,8 +137,13 @@
     <Compile Include="Migrations\201702240811487_Initial.Designer.cs">
       <DependentUpon>201702240811487_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702262141191_ModifiedJob.cs" />
+    <Compile Include="Migrations\201702262141191_ModifiedJob.Designer.cs">
+      <DependentUpon>201702262141191_ModifiedJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -190,6 +195,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702240811487_Initial.resx">
       <DependentUpon>201702240811487_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702262141191_ModifiedJob.resx">
+      <DependentUpon>201702262141191_ModifiedJob.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
