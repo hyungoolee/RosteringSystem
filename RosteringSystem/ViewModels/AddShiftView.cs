@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace RosteringSystem.ViewModels
 {
-    public class AddShiftView
+    public class AddShiftView : Shift
     {
         public IEnumerable<SelectListItem> JobsList { get; set; }
         public IEnumerable<SelectListItem> RolesList { get; set; }
-        public int Capacity { get; set; }
+        
     }
 }
