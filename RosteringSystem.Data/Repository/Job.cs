@@ -39,6 +39,40 @@ namespace RosteringSystem.Data
             return _context.Jobs.Find(id);
         }
 
-        
+        public string GetJobNameById(int id)
+        {
+            var found = _context.Jobs.Find(id);
+            if (found == null) return "";
+
+            return _context.Entry(found).Property(x => x.Name).CurrentValue;
+        }
+
+        public string GetJobAddressById(int id)
+        {
+            var found = _context.Jobs.Find(id);
+            if (found == null) return "Job Not Found";
+
+            return _context.Entry(found).Property(x => x.Address).CurrentValue;
+        }
+
+        public List<Job> FindJobByName(string Name)
+        {
+            var query =
+                from j in _context.Jobs
+                where j.Name.ToLower() == Name.ToLower()
+                select j;
+            if (query == null) throw new KeyNotFoundException();
+            return query.ToList();
+        }
+
+        public List<Job> FindJobByAddress(string Address)
+        {
+            var query =
+                from j in _context.Jobs
+                where j.Name.ToLower() == Address.ToLower()
+                select j;
+            if (query == null) throw new KeyNotFoundException();
+            return query.ToList();
+        }
     }
 }
