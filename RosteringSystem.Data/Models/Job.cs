@@ -11,5 +11,7 @@ namespace RosteringSystem.Data.Models
         public string Address { get; set; }
 
         public virtual ICollection<Shift> Shift { get; set; }
+        //comment
+        //cmt 2
     }
 }
