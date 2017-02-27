@@ -16,5 +16,12 @@ namespace RosteringSystem.Controllers
             var shifts = repo.ShiftList();
             return View();
         }
+
+        public ActionResult CreateShift()
+        {
+            IRepository repo = new Repository();
+            var jobs = repo.ShiftList();
+            return View();
+        }
     }
 }
