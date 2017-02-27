@@ -57,6 +57,7 @@
     <Compile Include="Models\StaffShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="Repository\StaffShift.cs" />
     <Compile Include="Repository\Job.cs" />
     <Compile Include="Repository\Role.cs" />
     <Compile Include="Repository\Shift.cs" />

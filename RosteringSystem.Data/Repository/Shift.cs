@@ -8,6 +8,26 @@ namespace RosteringSystem.Data
     {
         public List<Shift> ShiftList() => _context.Shifts.ToList();
 
+        public List<Shift> AvailShiftList()
+        {
+            return _context.Shifts
+                .Include("Job")
+                .Include("Role")
+                .Where(s => s.Vacancy > 0).ToList();
+        }
+
+        public bool DecreaseVacancyById(int id)
+        {
+            var found = _context.Shifts.Find(id);
+            if (found == null) return false;
+            if (found.Vacancy <= 0) return false;
+
+            found.Vacancy -= 1;
+            _context.Entry(found).Property("Vacancy").IsModified = true;
+            _context.SaveChanges();
+            return true;
+        }
+
         public void CreateShift(Shift shift)
         {
             _context.Shifts.Add(shift);
