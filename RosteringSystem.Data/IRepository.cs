@@ -21,13 +21,13 @@ namespace RosteringSystem.Data
         void CreateJob(Job job);
         bool UpdateJob(Job job);
         bool RemoveJobById(int id);
-        Shift GetJobById(int id);
+        Job GetJobById(int id);
 
 
         List<Role> RoleList();
         void CreateRole(Role role);
         bool UpdateRole(Role role);
         bool RemoveRoleById(int id);
-        Shift GetRoleById(int id);
+        Role GetRoleById(int id);
     }
 }
