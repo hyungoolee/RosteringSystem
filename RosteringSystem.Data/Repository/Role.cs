@@ -6,8 +6,11 @@ namespace RosteringSystem.Data
 {
     public partial class Repository
     {
-        public List<Role> RoleList() => _context.Roles.ToList();
-
+        public List<Role> RoleList()
+        {
+            return _context.Roles.ToList();
+        }
+        
         public void CreateRole(Role Role)
         {
             _context.Roles.Add(Role);
