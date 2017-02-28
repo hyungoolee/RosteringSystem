@@ -8,7 +8,7 @@
 @using (Html.BeginForm())
 {
     @Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "Shift ID")
-    @Html.DropDownListFor(m => m.StaffId, new SelectList(Model.StaffList, "Id", "FirstName"), "Staff ID")
+    @Html.DropDownListFor(m => m.StaffId, new SelectList(Model.StaffList, "Id", "FirstName"), "Staff Name")
     <input type="submit" value="Assign" class="btn btn-default" />
 }
 
