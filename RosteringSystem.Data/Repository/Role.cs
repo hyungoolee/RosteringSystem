@@ -1,28 +1,28 @@
 ﻿using RosteringSystem.Data.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RosteringSystem.Data
 {
     public partial class Repository
     {
-        public List<Role> RoleList() => _context.Roles.ToList();
-
-        public void CreateRole(Role role)
+        public List<Role> RoleList()
         {
-            _context.Roles.Add(role);
+            return _context.Roles.ToList();
+        }
+        
+        public void CreateRole(Role Role)
+        {
+            _context.Roles.Add(Role);
             _context.SaveChanges();
         }
 
-        public bool UpdateRole(Role role)
+        public bool UpdateRole(Role Role)
         {
-            var found = _context.Jobs.Find(role.Id);
+            var found = _context.Roles.Find(Role.Id);
             if (found == null) return false;
 
-            _context.Entry(found).CurrentValues.SetValues(role);
+            _context.Entry(found).CurrentValues.SetValues(Role);
             _context.SaveChanges();
             return true;
         }

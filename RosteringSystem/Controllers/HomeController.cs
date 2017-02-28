@@ -33,6 +33,13 @@ namespace RosteringSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public JsonResult GetAvailStaffForShift(int id)
+        {
+            var staff = Repository.GetAvailStaffListForShift(id);
+            return Json(new SelectList(staff, "Id", "FirstName"));
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

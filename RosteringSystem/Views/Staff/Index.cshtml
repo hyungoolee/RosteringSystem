@@ -1,0 +1,80 @@
+﻿@model RosteringSystem.ViewModels.StaffViewModel
+@{
+    ViewBag.Title = "Staff";
+}
+@Scripts.Render("~/Scripts/StaffViewModel.js")
+
+<h2>Add a New Staff</h2>
+<table class="table table-bordered" id="table-add-staff">
+    @using (Html.BeginForm())
+    {
+<tr>
+    <td>@Html.LabelFor(m=>m.FirstName)</td>
+    <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</td>
+        <td>@Html.LabelFor(m => m.LastName)</td>
+        <td>@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</td>
+        <td>@Html.LabelFor(m=>m.RoleList)</td>
+        <td>@Html.DropDownListFor(m=>Model.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), "--------Select Role--------", new { @class = "form-control" })</td>
+        <td>
+            <input type="submit" class="btn btn-info" value="Add Staff" />
+        </td>
+    </tr>
+    }
+</table>
+<div class="form-update">
+    <form id="form-update-staff">
+        <table id="table-update">
+            <tr style="display:none;">
+                <td><label>Staff ID</label></td>
+                <td><input type="text" name="StaffId" id="StaffId" class="form-control"/></td>
+            <tr>
+                <td><label>First Name</label></td>
+                <td><input type="text" name="FName" id="FName"  class="form-control" /></td>
+            </tr>
+            <tr>
+                <td><label>Last Name</label></td>
+                <td><input type="text" name="LName" id="LName"  class="form-control"/></td>
+            </tr>
+            <tr><td colspan="2"><button class="btn btn-info btn-block" type="submit" onclick="return UpdateDataBase()">Update</button></td></tr>
+        </table>
+    </form>
+</div>
+
+<table class="table table-bordered table-striped table-hover" id="table-staff-list" >
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role  Name</th>
+        <th colspan="2">Action</th>
+    </tr>
+        @foreach (var s in Model.StaffList)
+        {
+            <tr>
+                <td>@s.FirstName</td>
+                <td>@s.LastName</td>
+                <td>@s.Role.Name</td>
+                <td><a href="~/Staff/Delete?StaffId=@s.Id"><button class="btn btn-danger">Delete</button></a></td>
+                <td><button class="btn btn-info" onclick="return Update(@s.Id)" id="btn-update-staff">Update</button></td>
+        </tr>     
+    }
+</table>
+<!----Custom InPage Styles-->
+<style>
+    .form-update{
+        position: fixed;
+        top: -500px;
+        left: 40%;
+        margin: 40px;
+        background-color: #e8e8e8;
+
+    }
+    #table-update{
+        margin: 50px;
+    }
+    #table-update tr td{
+        padding: 15px;
+    }
+</style>
+
+
+

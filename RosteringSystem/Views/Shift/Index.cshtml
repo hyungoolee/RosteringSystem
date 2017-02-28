@@ -6,33 +6,27 @@
 
 <h2> Shift Information</h2>
 <div class="container">
-@using (Html.BeginForm("Index", ""))
+@using (Html.BeginForm())
 {
     <div class="row">
-        <div class="col-sm-3">@Html.LabelFor(m => m.JobsList) &nbsp;&nbsp;&nbsp; @Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"), new { @class = "form-control" })</div>
-        <div class="col-sm-3">@Html.LabelFor(m => m.RolesList) &nbsp;&nbsp;&nbsp; @Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"), new { @class = "form-control" })</div>
-        <div class="col-sm-3">@Html.LabelFor(m => m.Capacity) &nbsp;&nbsp;&nbsp; @Html.TextBoxFor(m => m.Capacity, new { @class = "form-control" })</div>
-       
+        <div class="col-xs-2">@Html.LabelFor(m => m.JobsList) </div>
+        <div class="col-xs-2">@Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"), new { @class = "form-control" })</div>
+        <div class="col-xs-2">@Html.LabelFor(m => m.RolesList) </div>
+        <div class="col-xs-2">@Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"), new { @class = "form-control" })</div>
+        <div class="col-xs-2">@Html.LabelFor(m => m.Capacity) </div>
+        <div class="col-xs-2">@Html.TextBoxFor(m => m.Capacity, new { @class = "form-control" })</div>
     </div>
     <div class="row">
-        <div class="col-sm-1">@Html.LabelFor(m => m.Start) &nbsp;&nbsp;&nbsp; </div>
-        <div class='col-sm-4'>
-             @Html.TextBoxFor(m => m.Start, htmlAttributes: new { @id = "datetimepicker4", @class="form-control" })
-           
-        </div>
-        <div class="col-sm-1">@Html.LabelFor(m => m.End) &nbsp;&nbsp;&nbsp; </div>
-        <div class='col-sm-4'>
-            @Html.TextBoxFor(m => m.End, htmlAttributes: new { @id = "datetimepicker4", @class = "form-control" })
-            <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker4').datetimepicker();
-            });
-            </script>
-        </div>
+        <div class="col-xs-2">@Html.LabelFor(m => m.Start) </div>
+        <div class="col-xs-2"><input type="datetime-local" class="form-control" name="Start"/> </div>
        
-        <div class="col-xs-3"><input type="submit" value="Save Shift" /></div>
-        
+        <div class="col-xs-2">@Html.LabelFor(m => m.End) </div>
+        <div class="col-xs-2"><input type="datetime-local" class="form-control"name="End"/> </div>
+        <div class="col-xs-2"><input type="submit" value="Save Shift" /></div>
+        <div class="col-xs-2"></div>
     </div>
 
 }
 </div>
+
+
