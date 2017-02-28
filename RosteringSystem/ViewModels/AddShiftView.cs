@@ -14,6 +14,5 @@ namespace RosteringSystem.ViewModels
         public IEnumerable<SelectListItem> JobsList { get; set; }
         [Display(Name = "Roles List")]
         public IEnumerable<SelectListItem> RolesList { get; set; }
-        
     }
 }

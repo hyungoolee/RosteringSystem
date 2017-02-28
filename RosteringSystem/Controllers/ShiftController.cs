@@ -33,11 +33,15 @@ namespace RosteringSystem.Controllers
         public ActionResult Index(AddShiftView shift) {
             Shift s = new Shift();
             s.Capacity = shift.Capacity;
+            s.Vacancy = s.Capacity;
             s.JobId = shift.JobId;
             s.RoleId = shift.RoleId;
             s.Start = shift.Start;
-            s.End = shift.End;
-            Repository.CreateShift(shift);
+            s.End = shift.End; 
+            if (ModelState.IsValid)
+            {
+                Repository.CreateShift(s);
+            }
             return RedirectToAction("Index", "Home");
         }
     }
