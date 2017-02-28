@@ -7,11 +7,9 @@
 
 @using (Html.BeginForm())
 {
-    @Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "ShiftID")
-    @Html.DropDownListFor(m => m.StaffId, new SelectList(Model.StaffList, "Id", "FirstName"), "Staff")
-@*        @Html.DropDownListFor(m => m.ShiftId, Model.AvailShiftList, "Shift ID")*@
-@*        @Html.DropDownListFor(m => m.StaffId, Model.StaffList, "Staff")*@
-        <input type="submit" value="Assign" class="btn btn-default" />
+    @Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "Shift ID")
+    @Html.DropDownListFor(m => m.StaffId, new SelectList(Model.StaffList, "Id", "FirstName"), "Staff Name")
+    <input type="submit" value="Assign" class="btn btn-default" />
 }
 
 <table class="table table-bordered table-striped">
