@@ -9,24 +9,31 @@
 @using (Html.BeginForm("Index", ""))
 {
     <div class="row">
-        <div class="col-xs-2">@Html.LabelFor(m => m.JobsList) </div>
-        <div class="col-xs-2">@Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"))</div>
-        <div class="col-xs-2">@Html.LabelFor(m => m.RolesList) </div>
-        <div class="col-xs-2">@Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"))</div>
-        <div class="col-xs-2">@Html.LabelFor(m => m.Capacity) </div>
-        <div class="col-xs-2">@Html.TextBoxFor(m => m.Capacity)</div>
+        <div class="col-sm-3">@Html.LabelFor(m => m.JobsList) &nbsp;&nbsp;&nbsp; @Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"), new { style = "width: 120px" })</div>
+        <div class="col-sm-3">@Html.LabelFor(m => m.RolesList) &nbsp;&nbsp;&nbsp; @Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"), new { style = "width: 120px" })</div>
+        <div class="col-sm-3">@Html.LabelFor(m => m.Capacity) &nbsp;&nbsp;&nbsp; @Html.TextBoxFor(m => m.Capacity, new { style = "width: 50px" })</div>
+       
     </div>
     <div class="row">
-        <div class="col-xs-2">@Html.LabelFor(m => m.Start) </div>
-        <div class="col-xs-2"><input type="datetime"/>  </div>
+        <div class="col-sm-1">@Html.LabelFor(m => m.Start) &nbsp;&nbsp;&nbsp; </div>
+        <div class='col-sm-4'>
+            <input type='text' class="form-control" id='datetimepicker4' />
+            @Html.TextBoxFor(m => m.Start, htmlAttributes: new { @id = "datetimepicker4", @class="form-control" })
+
+        </div>
+        <div class="col-sm-1">@Html.LabelFor(m => m.End) &nbsp;&nbsp;&nbsp; </div>
+        <div class='col-sm-4'>
+            <input type='text' class="form-control" id='datetimepicker4' />
+        </div>
        
-        <div class="col-xs-2">@Html.LabelFor(m => m.End) </div>
-        <div class="col-xs-2"><input type="datetime"/> </div>
-        <div class="col-xs-2"><input type="submit" value="Save Shift" /></div>
-        <div class="col-xs-2"></div>
+        <div class="col-xs-3"><input type="submit" value="Save Shift" /></div>
+        
     </div>
 
 }
 </div>
-
-
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker();
+            });
+</script>
