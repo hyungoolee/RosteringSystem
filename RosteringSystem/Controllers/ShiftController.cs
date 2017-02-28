@@ -12,18 +12,11 @@ namespace RosteringSystem.Controllers
     public class ShiftController : Controller
     {
         // GET: Shift
-        public ActionResult Index()
-        {
-            IRepository repo = new Repository();
-            var shifts = repo.ShiftList();
-            return View();
-        }
-
-        public ActionResult CreateShift()
-        {
+        public ActionResult Index() { 
             IRepository repo = new Repository();
             var jobs = repo.JobList();
             var roles = repo.RoleList();
+
             var viewModel = new AddShiftView();
             viewModel.JobsList = jobs.Select(x => new SelectListItem
             {
@@ -38,7 +31,7 @@ namespace RosteringSystem.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult CreateShift(AddShiftView shift) {
+        public ActionResult Index(AddShiftView shift) {
             IRepository repo = new Repository();
             Shift s = new Shift();
             s.Capacity = shift.Capacity;
@@ -47,7 +40,7 @@ namespace RosteringSystem.Controllers
             s.Start = shift.Start;
             s.End = shift.End;
             repo.CreateShift(shift);
-            return RedirectToAction("Index", "Shift");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
