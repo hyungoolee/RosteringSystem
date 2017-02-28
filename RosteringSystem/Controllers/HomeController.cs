@@ -20,6 +20,10 @@ namespace RosteringSystem.Controllers
         [HttpPost]
         public ActionResult Index(DashboardViewModel dashboard)
         {
+            //Add time conflict logic here
+
+
+
             var staffShift = new StaffShift
             {
                 StaffId = dashboard.StaffId,
@@ -33,18 +37,13 @@ namespace RosteringSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
-        }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+
+
+
+
+        
     }
 }
