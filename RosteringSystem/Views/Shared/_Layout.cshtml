@@ -6,7 +6,23 @@
     <title>@ViewBag.Title - IC Roster</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-  
+    <style>
+        .form-update {
+            position: fixed;
+            top: -500px;
+            left: 40%;
+            margin: 40px;
+            background-color: #e8e8e8;
+        }
+
+        #table-update {
+            margin: 50px;
+        }
+
+            #table-update tr td {
+                padding: 15px;
+            }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,8 +40,8 @@
                     <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
                     <li>@Html.ActionLink("Shift", "Index", "Shift")</li>
                     <li>@Html.ActionLink("Staff", "Index", "Staff")</li> 
-                    <li>@Html.ActionLink("Role", "Index", "Role")</li>
-                    <li>@Html.ActionLink("Job", "Index", "Job")</li>
+                    <li>@Html.ActionLink("Role", "Index", "Roles")</li>
+                    <li>@Html.ActionLink("Job", "Index", "Jobs")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav navbar-right">@Html.ActionLink("Login", "Index", "Login")</li>

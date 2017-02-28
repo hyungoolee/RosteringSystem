@@ -5,12 +5,16 @@
 
 <h2>Dashboard</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "Shift ID", new { @id = "ShiftId" })
-    @Html.DropDownListFor(m => m.StaffId, new SelectList(string.Empty, "Id", "FirstName"), "Staff Name", new { @id = "StaffId" })
-    <input type="submit" value="Assign" class="btn btn-default" />
-}
+<table class="table table-bordered" id="table-add-staff">
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>@Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "Shift ID", new { @id = "ShiftId", @class = "form-control" })</td>
+            <td>@Html.DropDownListFor(m => m.StaffId, new SelectList(string.Empty, "Value", "Text"), "Staff Name", new { @id = "StaffId", @class = "form-control" })</td>
+            <td><input type="submit" value="Assign" class="btn btn-info" /></td>
+        </tr>
+    }
+</table>
 
 <table class="table table-bordered table-striped">
     <tr>
@@ -38,8 +42,8 @@
 
 @section scripts {
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("#ShiftId").change(function() {
+        $(document).ready(function () {
+            $("#ShiftId").change(function () {
                 $("#StaffId").empty();
                 $.ajax({
                     type: 'Post',
@@ -49,9 +53,9 @@
 
                     data: { id: $("#ShiftId").val() },
 
-                    success: function(response) {
+                    success: function (response) {
                         $.each(response,
-                            function(i, elem) {
+                            function (i, elem) {
                                 $("#StaffId").append('<option value="' +
                                     elem.Value +
                                     '">' +
@@ -60,7 +64,7 @@
                             });
                     },
 
-                    error: function(ex) {
+                    error: function (ex) {
                         alert('Failed to retrieve Staff IDs.' + ex);
                     }
                 });
