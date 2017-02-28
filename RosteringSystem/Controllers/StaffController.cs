@@ -59,10 +59,13 @@ namespace RosteringSystem.Controllers
         //}
         public ActionResult Index()
         {
+            return View();
+        }
+        public ActionResult GetStaffList()
+        {
             var staffList = Repository.StaffList();
             return Json(staffList, JsonRequestBehavior.AllowGet);
         }
-
         public ActionResult Delete()
         {
             return null;
