@@ -30,3 +30,31 @@ function UpdateDataBase() {
         }    
     })
 }
+
+function UpdateStaffListDiv() {
+    $.ajax({
+        url: '/Staff/Index',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var rows = '';
+            $.each(data, function (i, item) {
+                rows += "<tr>";
+                rows += "<td>" + item.Id + "</td>";
+                rows += "<td>" + item.FirstName + "</td>";
+                rows += "<td>" + item.LastName + "</td>";
+                rows += "<td><button onclick="">Delete</button></td>";
+                rows += "<td><button onclick="">Update</button></td>";
+            });
+        },
+        error: function (err) {
+
+        }
+    });
+}
+function AddNewStaff() {
+
+}
+$(document).ready(function () {
+    UpdateStaffListDiv();
+});
