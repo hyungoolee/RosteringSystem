@@ -1,10 +1,7 @@
 ﻿using RosteringSystem.Data;
 using RosteringSystem.Data.Models;
 using RosteringSystem.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace RosteringSystem.Controllers
@@ -12,7 +9,8 @@ namespace RosteringSystem.Controllers
     public class ShiftController : BaseController
     {
         // GET: Shift
-        public ActionResult Index() { 
+        public ActionResult Index()
+        {
             var jobs = Repository.JobList();
             var roles = Repository.RoleList();
 
@@ -30,7 +28,8 @@ namespace RosteringSystem.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult Index(AddShiftView shift) {
+        public ActionResult Index(AddShiftView shift)
+        {
             Shift s = new Shift();
             s.Capacity = shift.Capacity;
             s.JobId = shift.JobId;

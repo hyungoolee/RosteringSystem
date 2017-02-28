@@ -7,8 +7,8 @@
 
 @using (Html.BeginForm())
 {
-    @Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "Shift ID")
-    @Html.DropDownListFor(m => m.StaffId, new SelectList(Model.StaffList, "Id", "FirstName"), "Staff Name")
+    @Html.DropDownListFor(m => m.ShiftId, new SelectList(Model.AvailShiftList, "Id", "Id"), "Shift ID", new { @id = "ShiftId" })
+    @Html.DropDownListFor(m => m.StaffId, new SelectList(string.Empty, "Id", "FirstName"), "Staff Name", new { @id = "StaffId" })
     <input type="submit" value="Assign" class="btn btn-default" />
 }
 
@@ -35,3 +35,36 @@
         </tr>
     }
 </table>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#ShiftId").change(function() {
+                $("#StaffId").empty();
+                $.ajax({
+                    type: 'Post',
+                    url: '@Url.Action("GetAvailStaffForShift")',
+
+                    dataType: 'json',
+
+                    data: { id: $("#ShiftId").val() },
+
+                    success: function(response) {
+                        $.each(response,
+                            function(i, elem) {
+                                $("#StaffId").append('<option value="' +
+                                    elem.Value +
+                                    '">' +
+                                    elem.Text +
+                                    '</option>');
+                            });
+                    },
+
+                    error: function(ex) {
+                        alert('Failed to retrieve Staff IDs.' + ex);
+                    }
+                });
+            })
+        });
+    </script>
+}
