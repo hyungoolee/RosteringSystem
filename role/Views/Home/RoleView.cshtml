@@ -1,0 +1,24 @@
+﻿@model RosteringSystem.ViewModels.RoleViewModel
+@{
+
+    View.Title = "RoleView";
+}
+
+<h2>RoleView</h2>
+<table class="table table-bordered table-striped">
+
+    <tr>
+        <td>RoleId</td>
+        <th>Name</th>
+        <th>&nbsp</th>
+    </tr>
+    @foreach (var rv in Model.RolesList)
+    {
+        <tr>
+            <td>@rv.RoleId</td>
+            <td>@rv.Name</td>
+            <td><a href="/Home/EditRole?roleId=@rv.roleId">Edit</a></td>
+        </tr>
+    }
+
+</table>

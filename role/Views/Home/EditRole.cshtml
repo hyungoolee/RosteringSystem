@@ -1,0 +1,28 @@
+﻿@model RosteringSystem.RoleClass
+@{
+    ViewBag.Title = "EditRole";
+}
+
+
+<h2>EditRole</h2>
+<table>
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+            </td>
+
+        </tr>
+        
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+
+
+    }
