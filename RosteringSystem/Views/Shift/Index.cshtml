@@ -1,39 +1,31 @@
-﻿@model RosteringSystem.ViewModels.ShiftViewClass
+﻿@model RosteringSystem.ViewModels.AddShiftView
 
 @{
     ViewBag.Title = "Shift";
 }
 
-<h2>List of Shifts that Needs Resources</h2>
-<table class="table table-bordered table-striped">
+<h2> Shift Information</h2>
+<div class="container">
+@using (Html.BeginForm("Index", ""))
+{
+    <div class="row">
+        <div class="col-xs-2">@Html.LabelFor(m => m.JobsList) </div>
+        <div class="col-xs-2">@Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"))</div>
+        <div class="col-xs-2">@Html.LabelFor(m => m.RolesList) </div>
+        <div class="col-xs-2">@Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"))</div>
+        <div class="col-xs-2">@Html.LabelFor(m => m.Capacity) </div>
+        <div class="col-xs-2">@Html.TextBoxFor(m => m.Capacity)</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">@Html.LabelFor(m => m.Start) </div>
+        <div class="col-xs-2">@Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"))</div>
+        <div class="col-xs-2">@Html.LabelFor(m => m.End) </div>
+        <div class="col-xs-2">@Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"))</div>
+        <div class="col-xs-2"><input type="submit" value="Save Shift" /></div>
+        <div class="col-xs-2"></div>
+    </div>
 
-    <tr>
-        <td>Shift Id</td>
-        <th>Job Name</th>
-       
-        <th>Time Start</th>
-        <th>Time Finish</th>
-        <th>Role </th>
-        <th>Resources Needed</th>
-        <th>Slots Available</th>
-        
-        <th>&nbsp</th>
-    </tr>
-   @foreach(var sm in Model.ShiftList)
-    {
-        <tr>
-            <td>@sm.Id</td>
-            <td>@sm.Job.Name</td>
-            <td>@sm.Start</td>
-            <td>@sm.End</td>
-            <td>@sm.Role.Name</td>
-            <td>@sm.Capacity/td>
-            <td>@sm.Vacancy</td>
-            
-
-            <td>@*<a href="/Staff/EditStaffMember?staffId=@sm.Id">Edit</a>*@</td>
-        </tr>
-    }
-</table>
+}
+</div>
 
 
