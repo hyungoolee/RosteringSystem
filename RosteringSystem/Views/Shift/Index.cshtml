@@ -18,9 +18,10 @@
     </div>
     <div class="row">
         <div class="col-xs-2">@Html.LabelFor(m => m.Start) </div>
-        <div class="col-xs-2">@Html.DropDownListFor(m => m.JobId, new SelectList(Model.JobsList, "Value", "Text"))</div>
+        <div class="col-xs-2"><input type="datetime"/>  </div>
+       
         <div class="col-xs-2">@Html.LabelFor(m => m.End) </div>
-        <div class="col-xs-2">@Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"))</div>
+        <div class="col-xs-2"><input type="datetime"/> </div>
         <div class="col-xs-2"><input type="submit" value="Save Shift" /></div>
         <div class="col-xs-2"></div>
     </div>
