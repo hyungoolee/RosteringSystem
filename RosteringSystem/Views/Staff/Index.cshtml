@@ -4,18 +4,17 @@
 }
 @Scripts.Render("~/Scripts/StaffViewModel.js")
 <h2>Add a New Staff</h2>
-@using (Html.BeginForm("Staff", "Index", FormMethod.Post, new { onsubmit = "return AddNewStaff()", id="form-add"}))
+@using (Html.BeginForm("Staff", "Index", FormMethod.Post, new { onsubmit = "return AddNewStaff()", id = "form-add" }))
 {
-    <table>
-        <tr>
-            <td>@Html.LabelFor(m=>m.FirstName)</td>
-            <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</td>
-            <td>@Html.LabelFor(m => m.LastName)</td>
-            <td>@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</td>
-            <td>@Html.DropDownListFor(m=>m.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), "----Select Role----", new { @class = "form-control" })</td>
-            <td><input type="submit" class="btn btn-info" value="Add"></td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col-sm-1">@Html.LabelFor(m => m.FirstName)</div>
+        <div class="col-sm-2">@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</div>
+        <div class="col-sm-1">@Html.LabelFor(m => m.LastName)</div>
+        <div class="col-sm-3">@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</div>
+        <div class="col-sm-1">@Html.LabelFor(m=>m.RoleList)</div>
+        <div class="col-sm-2">@Html.DropDownListFor(m => m.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), "----Select Role----", new { @class = "form-control" })</div>
+        <div class="col-sm-1"><input type="submit" class="btn btn-info" value="Add"></div>
+    </div>
 }
 
 <h3>Staff List</h3>
