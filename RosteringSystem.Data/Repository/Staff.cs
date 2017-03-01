@@ -45,7 +45,10 @@ namespace RosteringSystem.Data
             var found = _context.Shifts.Find(shiftId);
             if (found == null) throw new NullReferenceException();
 
-            return _context.Staff.Where(s => s.RoleId == found.RoleId).ToList();
+            return _context.Staff.Include("StaffShifts").Where(s => s.RoleId == found.RoleId).ToList();
         }
+
+
+
     }
 }

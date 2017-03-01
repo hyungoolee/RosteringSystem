@@ -33,10 +33,5 @@ namespace RosteringSystem.Data
             _context.SaveChanges();
             return true;
         }
-
-        //public Shift GetStaffShift(StaffShift staffShift)
-        //{
-        //    return _context.StaffShifts.Find();
-        //}
     }
 }
