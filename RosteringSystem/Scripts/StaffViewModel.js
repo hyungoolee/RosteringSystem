@@ -42,18 +42,20 @@ function DeleteStaff(Id) {
 }
 function UpdateStaff() {
     var formdata = $("#form-update").serializeArray();
-    console.log(formdata);
     $.ajax({
-        url: 'Staff/Update',
+        url: '/Staff/Update',
         type: 'POST',
         data: {StaffID:  formdata[0].value, FirstName: formdata[1].value, LastName: formdata[2].value, RoleID: formdata[3].value },
         success: function () {
+            $("#div-pop-up-update-staff").hide();
+            $("#fill-body").css("display", "none");
             UpdateStaffListDiv();
         }
     });
     return false;
 }
 function PopUpData(Id) {
+    $("#fill-body").css("display" , "block");
     $.ajax({
         url: '/Staff/PopUp',
         type: 'GET',
