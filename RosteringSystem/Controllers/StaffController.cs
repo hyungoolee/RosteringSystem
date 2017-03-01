@@ -11,67 +11,64 @@ namespace RosteringSystem.Controllers
 {
     public class StaffController : BaseController
     {
-        // Display Staff List to the view
-        //        public ActionResult Index()
-        //        {
-        //            StaffViewModel StaffVM = new StaffViewModel();
-        //            StaffVM.RoleList = Repository.RoleList(); 
-        //            StaffVM.StaffList = Repository.StaffList();
-        //            return View(StaffVM);
-        //        }
-        //        //stafflist to update after ajax call
-        //        //Add New Staff
-        //        [HttpPost]
-        //        public ActionResult Index(StaffViewModel PostData)
-        //        {
-        //            var StaffData = new Staff
-        //            {
-        //                FirstName = PostData.FirstName,
-        //                LastName = PostData.LastName,
-        //                RoleId = PostData.RoleIdSelected
-        //            };
-        //            Repository.CreateStaff(StaffData);
-        //            return RedirectToAction("index", "Staff");
-        //        }
-        //        //Delete Staff
-        //        public ActionResult Delete(int StaffId)
-        //        {
-        //            Repository.RemoveStaffById(StaffId);
-        //            return RedirectToAction("index", "Staff");
-        //        }
-        //        //Update Staff
-        //        public ActionResult Update(int StaffId)
-        //        {
-        //            var StaffObj = Repository.GetStaffById(StaffId);
-        //           //  return Json(StaffObj, JsonRequestBehavior.AllowGet);
-        //            return Json(new {ID= StaffObj.Id, FirstName = StaffObj.FirstName , LastName = StaffObj.LastName}, JsonRequestBehavior.AllowGet);
-        //        }
-        //        [HttpPost]
-        //        public ActionResult UpdateDataBase(int StaffId, string FirstName, string LastName)
-        //        {
-        //            Staff StaffObj = Repository.GetStaffById(StaffId);
-        //            StaffObj.FirstName = FirstName;
-        //            StaffObj.LastName = LastName;
-        //            Repository.UpdateStaff(StaffObj);           
-        //            return Json("Successfully Updated !!!", JsonRequestBehavior.AllowGet);
-        //        }
-        //    }
-        //}
         public ActionResult Index()
         {
-            return View();
+            var NewObj = new StaffViewModel();
+            NewObj.RoleList = Repository.RoleList();
+            return View(NewObj);
+           // return View();
+        }
+        //Posting form data to the staff
+        [HttpPost]
+        public ActionResult Index(Staff StaffData)
+        {
+            return null;
+        }
+        [HttpPost]
+        public ActionResult AddStaff(string FirstName, string LastName, int RoleID)
+        {
+            var NewSaff = new Staff()
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                RoleId = RoleID
+            };
+            Repository.CreateStaff(NewSaff);
+            return null;
         }
         public ActionResult GetStaffList()
         {
             var staffList = Repository.StaffList();
-            return Json(staffList, JsonRequestBehavior.AllowGet);
+            return View(staffList);
         }
-        public ActionResult Delete()
+        [HttpPost]
+        public ActionResult Delete(int StaffID)
         {
+            Repository.RemoveStaffById(StaffID);
             return null;
         }
-        public ActionResult Update()
+        public ActionResult PopUp(int StaffID)
         {
+            var StaffObj = Repository.GetStaffById(StaffID);
+            //create an object with some data on it to pass it to the view
+            var StaffNewObj = new StaffViewModel();
+            StaffNewObj.RoleList = Repository.RoleList();
+            StaffNewObj.Id = StaffObj.Id;
+            StaffNewObj.FirstName = StaffObj.FirstName;
+            StaffNewObj.LastName = StaffObj.LastName;
+            StaffNewObj.RoleId = StaffObj.RoleId;
+
+            return View(StaffNewObj);
+        }
+
+        [HttpPost]
+        public ActionResult Update(string FirstName, string LastName, int RoleID, int StaffID)
+        {
+            var StaffToUpdate = Repository.GetStaffById(StaffID);
+            StaffToUpdate.FirstName = FirstName;
+            StaffToUpdate.LastName = LastName;
+            StaffToUpdate.RoleId = RoleID;
+            Repository.UpdateStaff(StaffToUpdate);
             return null;
         }
 

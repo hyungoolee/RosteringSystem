@@ -1,37 +1,34 @@
-﻿@{
+﻿@model RosteringSystem.ViewModels.StaffViewModel
+@{
     ViewBag.Title = "Staff";
 }
 @Scripts.Render("~/Scripts/StaffViewModel.js")
 <h2>Add a New Staff</h2>
-<button>Add Staff</button>
-
+@using (Html.BeginForm("Staff", "Index", FormMethod.Post, new { onsubmit = "return AddNewStaff()", id="form-add"}))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(m=>m.FirstName)</td>
+            <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</td>
+            <td>@Html.LabelFor(m => m.LastName)</td>
+            <td>@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</td>
+            <td>@Html.DropDownListFor(m=>m.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), new { @class = "form-control" })</td>
+            <td><input type="submit" class="btn btn-info" value="Add"></td>
+        </tr>
+    </table>
+}
 <div class="v2-staff-add-div">
     <!---------DIV FOR STAFF ADD-----AJAX-->
 </div>
 
 <h3>Staff List</h3>
+<!--------DIV FOR STAFF LIST-----AJAX UPDATE-------------------->
 <div class="v2-staff-list-div">
-    <!--------DIV FOR STAFF LIST-----AJAX UPDATE-->
-<table id="v2-staff-list-table">
-    <tr>
-        <th>Staff ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th colspan="3">Action</th>
-    </tr>
-    <tbody>Loading Staffs.............</tbody>
-
-</table>
+    
 </div>
-
-
-
-
-
-
-
 <!------------------POP UP DIV------------------------------------------>
-<div class="form-update">
+<div id="div-pop-up-add-staff"></div>
+@*<div class="form-update">
     <form id="form-update-staff">
         <table id="table-update">
             <tr style="display:none;">
@@ -48,7 +45,9 @@
             <tr><td colspan="2"><button class="btn btn-info btn-block" type="submit" onclick="return UpdateDataBase()">Update</button></td></tr>
         </table>
     </form>
-</div>
+</div>*@
+
+
 
 
 

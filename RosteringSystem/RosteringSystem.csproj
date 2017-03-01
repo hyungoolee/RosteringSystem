@@ -188,6 +188,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shift\Index.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Staff\GetStaffList.cshtml" />
+    <Content Include="Views\Staff\PopUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
