@@ -1,0 +1,15 @@
+﻿@model RosteringSystem.ViewModels.StaffViewModel
+@using (Html.BeginForm("", "", FormMethod.Post, new { onsubmit = "return UpdateStaff()", id = "form-update" }))
+{
+    <table id="table-update">
+        <tr>
+            <td>@Html.HiddenFor(m=>m.Id)</td>
+            <td>@Html.LabelFor(m => m.FirstName)</td>
+            <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</td>
+            <td>@Html.LabelFor(m => m.LastName)</td>
+            <td>@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</td>
+            <td>@Html.DropDownListFor(m => Model.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), "--------Select Role--------", new { @class = "form-control" })</td>
+            <td><input type="submit" class="btn btn-info" value="Update"></td>
+        </tr>
+    </table>
+}

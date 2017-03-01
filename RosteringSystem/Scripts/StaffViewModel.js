@@ -1,31 +1,67 @@
-﻿function Update(id) {
-    $('.form-update').animate({ top: '20%' });
+﻿$(document).ready(function () {
+    UpdateStaffListDiv();
+});
+function UpdateStaffListDiv() {
     $.ajax({
-        url: "/Staff/Update",
+        url: '/Staff/GetStaffList',
         type: 'GET',
-        data: {StaffId: id},
-        contentType: 'json',
-        success: function (response) {
-            $("#StaffId").val(response.ID);
-            $("#FName").val(response.FirstName);
-            $("#LName").val(response.LastName);
+        dataType: 'html',
+        success: function (data) {
+            $(".v2-staff-list-div").val('Loading Staffs..........................');
+            $(".v2-staff-list-div").html(data);
+        },
+        error: function (err) {
         }
-        });
-    return false;
-};
-function UpdateDataBase() {
-    //get values from the form
-    var staff_id = $('#StaffId').val();
-    var staff_f_name = $('#FName').val();
-    var staff_l_name = $('#LName').val();
+    });
+}
+function AddNewStaff() {
+    var formdata = $("#form-add").serializeArray();
     $.ajax({
+        url: '/Staff/AddStaff',
         type: 'POST',
-        url: '/Staff/UpdateDataBase',
-        data: { StaffId: staff_id, FirstName: staff_f_name, LastName: staff_l_name },
-        success: function (response) {
-            window.location.href = "/Staff/Index";
-        }    
+        data: { FirstName: formdata[0].value, LastName: formdata[1].value, RoleID: formdata[2].value },
+        success: function () {
+            UpdateStaffListDiv();
+            $('#form-add').trigger("reset");
+        }
+    });
+    return false;
+}
+function DeleteStaff(Id) {
+    $.ajax({
+        url: '/Staff/Delete',
+        type: 'POST',
+        data: { StaffID: Id },
+        beforeSubmit: function(){     
+        },
+        success: function () {
+            UpdateStaffListDiv();
+        }
     })
-
+    return false;
+}
+function UpdateStaff() {
+    var formdata = $("#form-update").serializeArray();
+    console.log(formdata);
+    $.ajax({
+        url: 'Staff/Update',
+        type: 'POST',
+        data: {StaffID:  formdata[0].value, FirstName: formdata[1].value, LastName: formdata[2].value, RoleID: formdata[3].value },
+        success: function () {
+            UpdateStaffListDiv();
+        }
+    });
+    return false;
+}
+function PopUpData(Id) {
+    $.ajax({
+        url: '/Staff/PopUp',
+        type: 'GET',
+        data: {StaffID : Id},
+        dataType: 'html',
+        success: function (data) {
+            $("#div-pop-up-update-staff").html(data);          
+        }
+    });
     return false;
 }
