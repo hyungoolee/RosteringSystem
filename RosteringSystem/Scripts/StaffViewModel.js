@@ -22,11 +22,10 @@ function UpdateDataBase() {
         type: 'POST',
         url: '/Staff/UpdateDataBase',
         data: { StaffId: staff_id, FirstName: staff_f_name, LastName: staff_l_name },
-        beforeSend: function () {
-            $('#btn-update-staff').val("Updating......");
-        },
         success: function (response) {
-           //some code to reload the div
+            window.location.href = "/Staff/Index";
         }    
     })
+
+    return false;
 }

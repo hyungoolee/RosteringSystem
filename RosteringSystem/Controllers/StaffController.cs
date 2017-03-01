@@ -52,8 +52,9 @@ namespace RosteringSystem.Controllers
             Staff StaffObj = Repository.GetStaffById(StaffId);
             StaffObj.FirstName = FirstName;
             StaffObj.LastName = LastName;
-            Repository.UpdateStaff(StaffObj);           
+            Repository.UpdateStaff(StaffObj);
             return Json("Successfully Updated !!!", JsonRequestBehavior.AllowGet);
+
         }
     }
 }
