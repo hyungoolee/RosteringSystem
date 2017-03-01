@@ -1,5 +1,5 @@
 ﻿function Update(id) {
-    $(' .form-update').animate({ top: '20%' });
+    $('.form-update').animate({ top: '20%' });
     $.ajax({
         url: "/Staff/Update",
         type: 'GET',

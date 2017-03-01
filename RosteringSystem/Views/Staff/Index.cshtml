@@ -47,34 +47,16 @@
         <th>Role  Name</th>
         <th colspan="2">Action</th>
     </tr>
-        @foreach (var s in Model.StaffList)
-        {
-            <tr>
-                <td>@s.FirstName</td>
-                <td>@s.LastName</td>
-                <td>@s.Role.Name</td>
-                <td><a href="~/Staff/Delete?StaffId=@s.Id"><button class="btn btn-danger">Delete</button></a></td>
-                <td><button class="btn btn-info" onclick="return Update(@s.Id)" id="btn-update-staff">Update</button></td>
+    @foreach (var s in Model.StaffList)
+    {
+        <tr>
+            <td>@s.FirstName</td>
+            <td>@s.LastName</td>
+            <td>@s.Role.Name</td>
+            <td><a href="~/Staff/Delete?StaffId=@s.Id"><button class="btn btn-danger">Delete</button></a></td>
+            <td><button class="btn btn-info" onclick="return Update(@s.Id)" id="btn-update-staff">Update</button></td>
         </tr>     
     }
 </table>
-<!----Custom InPage Styles-->
-<style>
-    .form-update{
-        position: fixed;
-        top: -500px;
-        left: 40%;
-        margin: 40px;
-        background-color: #e8e8e8;
-
-    }
-    #table-update{
-        margin: 50px;
-    }
-    #table-update tr td{
-        padding: 15px;
-    }
-</style>
-
 
 

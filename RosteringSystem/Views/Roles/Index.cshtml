@@ -1,0 +1,54 @@
+﻿@model RosteringSystem.ViewModels.RoleViewModel
+
+@{
+    ViewBag.Title = "Role";
+}
+@Scripts.Render("~/Scripts/RoleViewModel.js")
+@Scripts.Render("~/Scripts/RoleViewModel.js")
+
+<h2> Role Information</h2>
+
+<table class="table table-bordered" id="table-add-role">
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>@Html.LabelFor(m => m.Name)</td>
+            <td>@Html.TextBoxFor(m => m.Name, new { @class = "form-control" })</td>
+            <td>
+                <input type="submit" class="btn btn-info" value="Add Role" />
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="form-update">
+    <form id="form-update-staff">
+        <table id="table-update">
+            <tr style="display:none;">
+                <td><label>Role ID</label></td>
+                <td><input type="text" name="id" class="form-control" id="id" /></td>
+            <tr>
+                <td><label>Name</label></td>
+                <td><input type="text" name="name" class="form-control" id="name" /></td>
+            </tr>
+            <tr><td colspan="2"><button class="btn btn-info btn-block" type="submit" onclick="return UpdateDataBase()">Update</button></td></tr>
+        </table>
+    </form>
+</div>
+
+<table class="table table-bordered table-striped table-hover" id="table-staff-list">
+    <tr>
+        <th>Role ID</th>
+        <th>Name</th>
+        <th colspan="2">Action</th>
+    </tr>
+    @foreach (var s in Model.RoleList)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td><a href="~/Roles/Delete?id=@s.Id"><button class="btn btn-danger">Delete</button></a></td>
+            <td><button class="btn btn-info" onclick="return Update(@s.Id)" id="btn-update-role">Update</button></td>
+        </tr>
+    }
+</table>

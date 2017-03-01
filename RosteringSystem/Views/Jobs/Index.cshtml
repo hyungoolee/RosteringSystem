@@ -1,0 +1,61 @@
+﻿@model RosteringSystem.ViewModels.JobViewModel
+
+@{
+    ViewBag.Title = "Job";
+}
+@Scripts.Render("~/Scripts/JobViewModel.js")
+
+<h2> Job Information</h2>
+
+<table class="table table-bordered" id="table-add-job">
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>@Html.LabelFor(m => m.Name)</td>
+            <td>@Html.TextBoxFor(m => m.Name, new { @class = "form-control" })</td>
+            <td>@Html.LabelFor(m => m.Address)</td>
+            <td>@Html.TextBoxFor(m => m.Address, new { @class = "form-control" })</td>
+            <td>
+                <input type="submit" class="btn btn-info" value="Add Job" />
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="form-update">
+    <form id="form-update-staff">
+        <table id="table-update">
+            <tr style="display:none;">
+                <td><label>Job ID</label></td>
+                <td><input type="text" name="id" class="form-control" id="id" /></td>
+            <tr>
+                <td><label>Name</label></td>
+                <td><input type="text" name="name" class="form-control" id="name" /></td>
+            </tr>
+            <tr>
+                <td><label>Address</label></td>
+                <td><input type="text" name="address" class="form-control" id="address" /></td>
+            </tr>
+            <tr><td colspan="2"><button class="btn btn-info btn-block" type="submit" onclick="return UpdateDataBase()">Update</button></td></tr>
+        </table>
+    </form>
+</div>
+
+<table class="table table-bordered table-striped table-hover" id="table-staff-list">
+    <tr>
+        <th>Job ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th colspan="2">Action</th>
+    </tr>
+    @foreach (var s in Model.JobList)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.Address</td>
+            <td><a href="~/Jobs/Delete?id=@s.Id"><button class="btn btn-danger">Delete</button></a></td>
+            <td><button class="btn btn-info" onclick="return Update(@s.Id)" id="btn-update-job">Update</button></td>
+        </tr>
+    }
+</table>
