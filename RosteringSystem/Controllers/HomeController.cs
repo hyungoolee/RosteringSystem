@@ -36,13 +36,6 @@ namespace RosteringSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpPost]
-        //public JsonResult GetAvailStaffForShift(int id)
-        //{
-        //    var staff = Repository.GetAvailStaffListForShift(id);
-        //    return Json(new SelectList(staff, "Id", "FirstName"));
-        //}
-
         // @id this is the selected shift id
         [HttpPost]
         public JsonResult GetAvailStaffForShift(int id)
@@ -80,17 +73,20 @@ namespace RosteringSystem.Controllers
                     bool addable = true;
                     foreach (var s in StaffShiftTableById)
                     {
+                        //this is to check whether there is time conflict between required shift the all the shifts of the current staff
                         if (isTimeBetweenStartAndEndTime(s.startTime, s.endTime, requiredStartTime) ||
                             isTimeBetweenStartAndEndTime(s.startTime, s.endTime, requiredEndTime))
                         {
                             addable = false;
                             break;
                         }
+                        //this is to check whether any shift of the current staff overlaps the required one
                         else if (requiredStartTime < s.startTime && requiredEndTime > s.endTime)
                         {
                             addable = false;
                             break;
                         }
+                        // this is to check whether any shift of the current staff matches exactly the same as the required one
                         else if (requiredStartTime == s.startTime && requiredEndTime == s.endTime)
                         {
                             addable = false;
