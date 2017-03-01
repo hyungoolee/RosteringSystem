@@ -149,6 +149,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\AddShiftView.cs" />
+    <Compile Include="ViewModels\JobViewModel.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
     <Compile Include="ViewModels\ShiftViewClass.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
   </ItemGroup>
@@ -192,6 +194,8 @@
     <Content Include="Views\Staff\Index.cshtml" />
     <Content Include="Views\Staff\GetStaffList.cshtml" />
     <Content Include="Views\Staff\PopUp.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

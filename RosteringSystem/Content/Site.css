@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*shared nav & footer*/
+.navbar {
+    background-color: dodgerblue;
+    border: none;
+}
+
+.navbar-nav > li > a{
+    color: white;
+}
+
+footer {
+    padding-top: 20px;
+    background-color: dodgerblue;
+    height: 100px;
+    color: white;
+}
