@@ -38,8 +38,10 @@ namespace RosteringSystem.Controllers
         }
         public ActionResult GetStaffList()
         {
-            var staffList = Repository.StaffList();
-            return View(staffList);
+            var NewStaffObj = new StaffViewModel();
+            NewStaffObj.RoleList = Repository.RoleList();
+            NewStaffObj.StaffList = Repository.StaffList();
+            return View(NewStaffObj);
         }
         [HttpPost]
         public ActionResult Delete(int StaffID)

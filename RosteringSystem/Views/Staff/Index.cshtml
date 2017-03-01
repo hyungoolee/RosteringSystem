@@ -12,40 +12,20 @@
             <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</td>
             <td>@Html.LabelFor(m => m.LastName)</td>
             <td>@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</td>
-            <td>@Html.DropDownListFor(m=>m.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), new { @class = "form-control" })</td>
+            <td>@Html.DropDownListFor(m=>m.RoleIdSelected, new SelectList(Model.RoleList, "Id", "Name"), "----Select Role----", new { @class = "form-control" })</td>
             <td><input type="submit" class="btn btn-info" value="Add"></td>
         </tr>
     </table>
 }
-<div class="v2-staff-add-div">
-    <!---------DIV FOR STAFF ADD-----AJAX-->
-</div>
 
 <h3>Staff List</h3>
 <!--------DIV FOR STAFF LIST-----AJAX UPDATE-------------------->
-<div class="v2-staff-list-div">
-    
-</div>
+<div class="v2-staff-list-div"></div>
 <!------------------POP UP DIV------------------------------------------>
-<div id="div-pop-up-add-staff"></div>
-@*<div class="form-update">
-    <form id="form-update-staff">
-        <table id="table-update">
-            <tr style="display:none;">
-                <td><label>Staff ID</label></td>
-                <td><input type="text" name="StaffId" id="StaffId" class="form-control" /></td>
-            <tr>
-                <td><label>First Name</label></td>
-                <td><input type="text" name="FName" id="FName" class="form-control" /></td>
-            </tr>
-            <tr>
-                <td><label>Last Name</label></td>
-                <td><input type="text" name="LName" id="LName" class="form-control" /></td>
-            </tr>
-            <tr><td colspan="2"><button class="btn btn-info btn-block" type="submit" onclick="return UpdateDataBase()">Update</button></td></tr>
-        </table>
-    </form>
-</div>*@
+<div id="div-pop-up-update-staff"></div>
+<style>
+
+</style>
 
 
 

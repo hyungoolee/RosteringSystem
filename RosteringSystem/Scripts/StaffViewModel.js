@@ -60,7 +60,7 @@ function PopUpData(Id) {
         data: {StaffID : Id},
         dataType: 'html',
         success: function (data) {
-            $("#div-pop-up-add-staff").html(data);
+            $("#div-pop-up-update-staff").html(data);          
         }
     });
     return false;
