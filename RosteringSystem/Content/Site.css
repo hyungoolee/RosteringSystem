@@ -1,6 +1,13 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -25,17 +32,51 @@ textarea {
 
 /*shared nav & footer*/
 .navbar {
-    background-color: dodgerblue;
+    background-color: #3e3e3e;
     border: none;
 }
 
-.navbar-nav > li > a{
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+
+.navbar-inverse .navbar-brand {
     color: white;
 }
 
 footer {
     padding-top: 20px;
-    background-color: dodgerblue;
+    background-color: #3e3e3e;
     height: 100px;
     color: white;
 }
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+    background-color: rgba(30, 144, 255, 0.47);
+}
+
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #218df5;
+}
+
+.btn-danger {
+    background-color: #3e3e3e;
+    border-color: #3e3e3e;
+}
+
+.form-update {
+    position: fixed;
+    top: -500px;
+    left: 40%;
+    margin: 40px;
+    background-color: #e8e8e8;
+}
+
+#table-update {
+    margin: 50px;
+}
+
+    #table-update tr td {
+        padding: 15px;
+    }

@@ -8,23 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <style>
-        .form-update {
-            position: fixed;
-            top: -500px;
-            left: 40%;
-            margin: 40px;
-            background-color: #e8e8e8;
-        }
-
-        #table-update {
-            margin: 50px;
-        }
-
-            #table-update tr td {
-                padding: 15px;
-            }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -52,14 +36,16 @@
             </div>
         </div>
     </div>
+    @*content body*@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer class="col-md-12 col-sm-12 text-center container-fluid">
-            <p>&copy; @DateTime.Now.Year - iScholarship,Inc. All Rights Reserved.</p>
-            <p>Hyungoo | Romelyn | Kishor | Minh | FeiFei | Saifal | Mickey</p>
-        </footer>
     </div>
+    @*footer*@
+    <footer class="col-md-12 col-sm-12 text-center container-fluid">  @*navbar-fixed-bottom*@
+        <p>&copy; @DateTime.Now.Year - iScholarship,Inc. All Rights Reserved.</p>
+        <p>Hyungoo | Romelyn | Kishor | Minh | FeiFei | Saifal | Mickey</p>
+    </footer>
 
    
    
