@@ -14,7 +14,7 @@
         <div class="col-xs-2">@Html.LabelFor(m => m.RolesList) </div>
         <div class="col-xs-2">@Html.DropDownListFor(m => m.RoleId, new SelectList(Model.RolesList, "Value", "Text"), new { @class = "form-control" })</div>
         <div class="col-xs-2">@Html.LabelFor(m => m.Capacity) </div>
-        <div class="col-xs-2">@Html.TextBoxFor(m => m.Capacity, new { @class = "form-control" })</div>
+        <div class="col-xs-2">@Html.TextBoxFor(m => m.Capacity, htmlattribute: new { @class = "form-control", @tabindex= })</div>
     </div>  <div class="row">&nbsp;</div>           
     <div class="row">
         <div class="col-xs-2">@Html.LabelFor(m => m.Start) </div>
