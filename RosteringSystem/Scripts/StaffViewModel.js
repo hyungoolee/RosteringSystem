@@ -29,7 +29,7 @@ function AddNewStaff() {
 }
 function DeleteStaff(Id) {
     $.ajax({
-        url: 'Staff/Delete',
+        url: '/Staff/Delete',
         type: 'POST',
         data: { StaffID: Id },
         beforeSubmit: function(){     
