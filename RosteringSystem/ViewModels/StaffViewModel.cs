@@ -14,6 +14,5 @@ namespace RosteringSystem.ViewModels
         public List<Role> RoleList { get; set; }
         public int RoleIdSelected { get; set; }
         public List<Staff> StaffList { get; set; }
-        public List<Object> StaffWithRoleName { get; set; }
     }
 }
