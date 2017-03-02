@@ -28,16 +28,19 @@ function AddNewStaff() {
     return false;
 }
 function DeleteStaff(Id) {
-    $.ajax({
-        url: '/Staff/Delete',
-        type: 'POST',
-        data: { StaffID: Id },
-        beforeSubmit: function(){     
-        },
-        success: function () {
-            UpdateStaffListDiv();
-        }
-    })
+    var r = confirm("Do you want to delete Staff ID "+ Id);
+    if (r == true) {
+        $.ajax({
+            url: '/Staff/Delete',
+            type: 'POST',
+            data: { StaffID: Id },
+            beforeSubmit: function () {
+            },
+            success: function () {
+                UpdateStaffListDiv();
+            }
+        });
+    } 
     return false;
 }
 function UpdateStaff() {
